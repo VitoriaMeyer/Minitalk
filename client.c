@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 16:57:41 by vmeyer-s          #+#    #+#             */
+/*   Updated: 2023/01/18 17:00:33 by vmeyer-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 void	send_bits(unsigned int c, int server_pid)
@@ -19,16 +31,16 @@ void	send_bits(unsigned int c, int server_pid)
 	}
 }
 
-int main(int agrc, char **argv)
+int	main(int agrc, char **argv)
 {
-    int pid;
+	int	pid;
 	int	i;
-	int c;
+	int	c;
 
 	i = 0;
-    if (agrc != 3)
-        ft_putstr_fd("Invalid argument, provide only PID and message\n", 1);
-    pid = ft_atoi(argv[1]);
+	if (agrc != 3)
+		ft_putstr_fd("Invalid argument, provide only PID and message\n", 1);
+	pid = ft_atoi(argv[1]);
 	while (argv[2][i])
 	{
 		c = argv[2][i];

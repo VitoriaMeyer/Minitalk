@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 16:50:47 by vmeyer-s          #+#    #+#             */
+/*   Updated: 2023/01/18 16:57:03 by vmeyer-s         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 char	ft_power(unsigned char base, unsigned char power)
@@ -30,19 +42,19 @@ void	read_signals(int signal)
 	return ;
 }
 
-int main()
-{  
-    pid_t	id;
-    struct sigaction    sigact;
+int	main(void)
+{
+	pid_t					id;
+	struct sigaction		sigact;
 
 	id = getpid();
-    ft_putnbr_fd(id, 1);
+	ft_putnbr_fd(id, 1);
 	ft_putchar_fd('\n', 1);
-    sigact.sa_flags = SA_RESTART;
+	sigact.sa_flags = SA_RESTART;
 	sigact.sa_handler = read_signals;
-    sigaction(SIGUSR1, &sigact, NULL);
+	sigaction(SIGUSR1, &sigact, NULL);
 	sigaction(SIGUSR2, &sigact, NULL);
-    while (1)
-        pause();
-    return (0);
+	while (1)
+		pause();
+	return (0);
 }
