@@ -3,10 +3,8 @@ CFLAGS	= -Wall -Werror -Wextra
 CC 		= @cc
 RM		= @rm -f
 
-SERVER	= server.c
-CLIENT	= client.c
-
-NAME	= project
+SERVER	= server
+CLIENT	= client
 
 LIBFT	= ./libft/libft.a
 
@@ -18,14 +16,13 @@ S		= @sleep
 PF		= @printf
 
 all :
-	$(CC) $(SERVER) $(FLAGS) $(LIBFT) -o $(NAME)
-	$(CC) $(CLIENT) $(FLAGS) $(LIBFT) -o $(NAME)
+	$(CC) server.c $(FLAGS) $(LIBFT) -o $(SERVER)
+	$(CC) client.c $(FLAGS) $(LIBFT) -o $(CLIENT)
 
 cute : 
 #1- frame
 		$(PF) "\033c\n"
-		$(CP)
-		@ar rcs $(NAME) $(OBJS)	
+		$(CP)	
 		$(E) "\033[0;35m         I'm compiling - (ɔ ◔ ‿ ◔)ɔ ♡ \n"
 		$(BB)
 		$(S) 0.5
@@ -47,14 +44,13 @@ cute :
 
 clean:
 		$(PF) "\033c\n"
-		$(E) "\033[1;91m      ✘  ᕙ - (҂◡̀_◡́)ᕤ  Killing files ruthlessly  ✘   \n"
+		$(E) "\033[1;91m      ✘  ᕙ (҂◡̀_◡́)ᕤ  Killing files ruthlessly  ✘   \n"
 		$(S) 0.1
-		$(RM) *.o
+		$(RM) $(SERVER) $(CLIENT)
 		$(S) 0.5
 		$(PF) "\033c\n"
 
 fclean:	clean
-		$(RM) $(NAME)
 
 re:	fclean all
 

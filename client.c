@@ -23,14 +23,16 @@ int main(int agrc, char **argv)
 {
     int pid;
 	int	i;
+	int c;
 
 	i = 0;
     if (agrc != 3)
         ft_putstr_fd("Invalid argument, provide only PID and message\n", 1);
     pid = ft_atoi(argv[1]);
-	while (argv[2])
+	while (argv[2][i])
 	{
-		send_bits(argv[i], pid);
+		c = argv[2][i];
+		send_bits(c, pid);
 		i++;
 	}
 	return (0);
