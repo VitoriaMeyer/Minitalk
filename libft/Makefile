@@ -6,7 +6,7 @@
 #    By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:57:28 by vmeyer-s          #+#    #+#              #
-#    Updated: 2022/02/18 10:55:21 by vmeyer-s         ###   ########.fr        #
+#    Updated: 2023/01/18 18:35:53 by vmeyer-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,14 +59,14 @@ BONUS = 	ft_lstnew 		\
 		ft_lstiter		\
 		ft_lstmap		\
 
-CC =gcc
-RM =rm -f
+CC = @gcc
+RM = @rm -f
 CFLAGS = -Wall -Werror -Wextra -I.
 
 all:$(NAME)
 
 $(NAME): $(SRC:=.o)
-			ar rc $(NAME) $(SRC:=.o)
+			@ar rc $(NAME) $(SRC:=.o)
 clean:
 	$(RM)	$(SRC:=.o) $(BONUS:=.o)
 fclean: clean

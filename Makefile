@@ -6,7 +6,7 @@
 #    By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 17:23:45 by vmeyer-s          #+#    #+#              #
-#    Updated: 2023/01/18 17:23:48 by vmeyer-s         ###   ########.fr        #
+#    Updated: 2023/01/18 18:38:36 by vmeyer-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ HEADER = minitalk.h
 E		= @echo
 S		= @sleep 
 PF		= @printf
-
-all :
+	
+all : 
+	@$(MAKE) -C libft
 	$(CC) server.c $(FLAGS) $(LIBFT) -o $(SERVER)
 	$(CC) client.c $(FLAGS) $(LIBFT) -o $(CLIENT)
 
@@ -57,6 +58,7 @@ clean:
 		$(PF) "\033c\n"
 		$(E) "\033[1;91m      ✘  ᕙ (҂◡̀_◡́)ᕤ  Killing files ruthlessly  ✘   \n"
 		$(S) 0.1
+		@$(MAKE) clean -C libft
 		$(RM) $(SERVER) $(CLIENT)
 		$(S) 0.5
 		$(PF) "\033c\n"
